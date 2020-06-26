@@ -1,5 +1,7 @@
 <?php
 
+// あぁ　なんて素敵な火あ
+
 namespace MyApp;
 class Model {
   protected $db;
