@@ -13,6 +13,9 @@ define('DB_PASSWORD', 'kingdom');
 // define('DSN', "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8");
 // define('DB_USERNAME', $db['user']);
 // define('DB_PASSWORD', $db['pass']);
+//define('DSN', 'mysql:dbhost=localhost;dbname=diary;charset=utf8');
+//define('DB_USERNAME', 'dbuser');
+//define('DB_PASSWORD', 'kingdom');
 
 // 画像関連の定数
 define('MAX_FILE_SIZE', 1 * 1024 * 1024);
