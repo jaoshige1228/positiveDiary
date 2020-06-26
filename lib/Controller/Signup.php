@@ -57,8 +57,13 @@ class Signup extends \MyApp\Controller {
         return;
       }
 
-      header('Location: ' . SITE_URL . '/top.php');
-      exit;
+      // サインアップに成功したらそのままログイン処理を行う
+      $userModel = new \MyApp\Model\User();
+      $user = $userModel->login([
+        'email' => $_POST['email'],
+        'password' => $_POST['password']
+      ]);
+      $this->_loginComprete($user);
     }
   }
 
@@ -88,13 +93,16 @@ class Signup extends \MyApp\Controller {
       }
 
       // login処理
-      session_regenerate_id(true);
+      $this->_loginComprete($user);
+    }
+  }
+  private function _loginComprete($user){
+    session_regenerate_id(true);
       $_SESSION['me'] = $user;
 
       // redirect to home
       header('Location: ' . SITE_URL);
       exit;
-    }
   }
 
   private function _signup_validate() {
