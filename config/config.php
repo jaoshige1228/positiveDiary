@@ -3,19 +3,16 @@
 ini_set('display_errors', 1);
 
 // ローカルサーバー用
-define('DSN', 'mysql:dbhost=localhost;dbname=diary;charset=utf8');
-define('DB_USERNAME', 'dbuser');
-define('DB_PASSWORD', 'kingdom');
+// define('DSN', 'mysql:dbhost=localhost;dbname=diary;charset=utf8');
+// define('DB_USERNAME', 'dbuser');
+// define('DB_PASSWORD', 'kingdom');
 
 // 公開サーバー用
-// $db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
-// $db['dbname'] = ltrim($db['path'], '/');
-// define('DSN', "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8");
-// define('DB_USERNAME', $db['user']);
-// define('DB_PASSWORD', $db['pass']);
-//define('DSN', 'mysql:dbhost=localhost;dbname=diary;charset=utf8');
-//define('DB_USERNAME', 'dbuser');
-//define('DB_PASSWORD', 'kingdom');
+$db = parse_url($_SERVER['CLEARDB_DATABASE_URL']);
+$db['dbname'] = ltrim($db['path'], '/');
+define('DSN', "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8");
+define('DB_USERNAME', $db['user']);
+define('DB_PASSWORD', $db['pass']);
 
 // 画像関連の定数
 define('MAX_FILE_SIZE', 1 * 1024 * 1024);
