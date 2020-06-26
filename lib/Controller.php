@@ -17,6 +17,13 @@ class Controller {
     $this->loginCheck();
   }
 
+  protected function validateToken($token){
+    if (!isset($token) || $token !== $_SESSION['token']) {
+      echo "トークンが正しくありません";
+      exit;
+    }
+  }
+
   public function loginCheck(){
     if (!$this->isLoggedIn()) {
       header('Location: ' . SITE_URL . '/top.php');

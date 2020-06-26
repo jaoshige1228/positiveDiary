@@ -20,7 +20,7 @@ define('THUMBNAIL_WIDTH_AND_HEIGHT', 400);
 define('IMAGES_DIR', __DIR__ . '/../public_html/images');
 define('THUMBNAIL_DIR', __DIR__ . '/../public_html/thumbs');
 
-define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST']);
+define('SITE_URL', 'https://' . $_SERVER['HTTP_HOST']);
 
 require_once(__DIR__ . '/../lib/functions.php');
 require_once(__DIR__ . '/autoload.php');

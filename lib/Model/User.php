@@ -105,4 +105,17 @@ class User extends \MyApp\Model {
     $stmt->setFetchMode(\PDO::FETCH_CLASS, 'stdClass');
     return $stmt->fetchAll();
   }
+
+  // サンプルスコアを登録
+  public function setSampleScore($id){
+    $sql = "update users set 
+    NoteDays = 4,
+    KeepNoteDays = 2,
+    HighScoreNoteDays = 2
+    where id = :id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([
+      ':id' => $id
+    ]);
+  }
 }

@@ -148,4 +148,39 @@ class DiaryModel extends \MyApp\Model {
       return $res;
     }
   }
+
+  // サンプル用日記作成
+  public function createSampleDiary($id, $one, $two, $three, $four){
+    $sql = "insert into myDiary(userId, good_1, good_2, good_3, other, date)
+    values(:id, '朝ごはんが美味しかった', '空が晴れていた', '目覚めがスッキリだった', '', :date)";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([
+      ':id' => $id,
+      ':date' => $one
+    ]);
+
+    $sql = "insert into myDiary(userId, good_1, good_2, good_3, other, date)
+    values(:id, '髪型が良い感じにキマッた', 'コンビニの会計が777円だった', '', 'カラオケにいきたいな〜', :date)";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([
+      ':id' => $id,
+      ':date' => $two
+    ]);
+
+    $sql = "insert into myDiary(userId, good_1, good_2, good_3, other, date)
+    values(:id, 'あの漫画の最新巻が発売された', '宝くじ１万円が当たった', '新規契約を２件取ることができた', '', :date)";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([
+      ':id' => $id,
+      ':date' => $three
+    ]);
+
+    $sql = "insert into myDiary(userId, good_1, good_2, good_3, other, date)
+    values(:id, '先輩に焼肉を奢ってもらった', '部屋の掃除をしたらスッキリした', '', '', :date)";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([
+      ':id' => $id,
+      ':date' => $four
+    ]);
+  }
 }

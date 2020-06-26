@@ -15,12 +15,60 @@ class Signup extends \MyApp\Controller {
         $this->signup_postProcess();
       }else if($_POST['key'] === 'login'){
         $this->login_postProcess();
+      }else if($_POST['key'] === 'easyLogin'){
+        $this->easylogin_postProcess();
       }
     }
   }
 
   public function loginCheck(){
+    // トップページではログインチェックを行わない
+  }
 
+  // かんたんログイン処理
+  protected function easylogin_postProcess(){
+    $this->validateToken($_POST['token']);
+
+    // ランダムなメルアドとパスワードを生成
+    $email = substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 15). '@guest.com';
+    $password = substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
+
+    $userModel = new \MyApp\Model\User();
+    $userModel->create([
+      'name' => 'ゲスト',
+      'Nickname' => 'ゲストさん',
+      'email' => $email,
+      'password' => $password
+    ]);
+    $user = $userModel->login([
+      'email' => $email,
+      'password' => $password
+    ]);
+
+    // データベースにサンプル用の日記を登録
+    $this->_setSampleDiary($user->id);
+    // サンプル用の日記数記録を登録
+    $this->_setSampleScore($user->id);
+
+    $this->_loginComprete($user);
+  }
+
+  private function _setSampleDiary($id){
+    $diaryModel = new \MyApp\Model\DiaryModel();
+
+    // 今日の日付を取得し、逆算して日記を作成する
+    $Today = new \DateTime('today');
+    $today = $Today->format('Y-m-d-D');
+    $one = $Today->modify('-1 day')->format('Y-m-d-D');
+    $two = $Today->modify('-1 day')->format('Y-m-d-D');
+    $three = $Today->modify('-2 day')->format('Y-m-d-D');
+    $four = $Today->modify('-2 day')->format('Y-m-d-D');
+
+    $diaryModel->createSampleDiary($id, $one, $two, $three, $four);
+  }
+  private function _setSampleScore($id){
+    $userModel = new \MyApp\Model\User();
+    $userModel->setSampleScore($id);
   }
 
   protected function signup_postProcess() {

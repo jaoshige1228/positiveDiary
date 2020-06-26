@@ -16,6 +16,13 @@ $signup->run();
   <link rel="stylesheet" href="/styles_top.css">
 </head>
 <body>
+  <div class="easyLogin">
+    <form action="/top.php" method="post" id="easyLogin">
+      <span onclick="document.getElementById('easyLogin').submit();">かんたんログイン</span>
+      <input type="hidden" name="key" value="easyLogin">
+      <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
+    </form>
+  </div>
   <input type="hidden" value="<?php echo $signup->errMode; ?>" id="signup_error_check">
   <header>
     <div class="header_content">
