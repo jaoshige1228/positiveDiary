@@ -20,7 +20,7 @@ class Signup extends \MyApp\Controller {
       }
     }
   }
-
+  
   public function loginCheck(){
     // トップページではログインチェックを行わない
   }

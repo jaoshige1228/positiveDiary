@@ -82,7 +82,7 @@ $signup->run();
 
   <main>
     <section class="about1">
-      <img src="/images/greenSky.jpg" alt="特徴1">
+      <img src="/images/Lara'sVoice_diary.png" alt="特徴1">
       <div>
         <h3>毎日の「ちょっぴり幸せ」を記録</h3>
         <p>お昼ご飯が美味しかった。<br>久しぶりに友達に会った。<br>一日中天気が良かった。<br>笑える出来事があった。<br>あなたの日常は、小さな幸せに満ちています。<br>つい、見落としがちな幸せを<br>記録に留めてみませんか？</p>
@@ -93,7 +93,7 @@ $signup->run();
     </section>
 
     <section class="about2">
-      <img src="/images/greenSky.jpg" alt="特徴2">
+      <img src="/images/Lara'sVoice.png" alt="特徴2">
       <div>
         <h3>あなたを褒める美少女</h3>
         <p>あなたは、立派です。<br>日々を懸命に生き<br>その軌跡を記録しようとしているのですから。<br>そんな成果を、「ララ」は認めてくれます。<br>日記を続けることで、<br>毎日、ララがあなたをほめてくれます。</p>
@@ -104,7 +104,7 @@ $signup->run();
     </section>
 
     <section class="about3">
-      <img src="/images/greenSky.jpg" alt="特徴3">
+      <img src="/images/Lara'sVoice_master.png" alt="特徴3">
       <div>
         <h3>あなただけのララ</h3>
         <p>ララは、あなたの望む呼び方で<br>あなたのことを呼んでくれます。<br>あなた好みに、<br>彼女をデザインしましょう。</p>
