@@ -1,4 +1,5 @@
 -- トップページ
+-- テストコメント
 insert into serif(genre, face, key1, serif)
 values(
   "トップページ",
