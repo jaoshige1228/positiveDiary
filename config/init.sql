@@ -12,7 +12,7 @@ create table users (
   created datetime
 );
 
--- alter table users modify icon varchar(255) default 'monika.jpg';
+-- alter table users modify icon varchar(255) default 'myPage.png';
 
 create table myDiary(
   id int not null auto_increment primary key,
